@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:replace="admin/_fragments::head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>博客管理登录</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
+    <link  rel="stylesheet" href="../../static/css/me.css" th:href="/css/me.css">
+</head>
+<body>
+
+<div class="m-container-small m-padded-tb-massive" style="max-width: 30em !important;">
+    <div class="ui container">
+        <div class="ui middle aligned center aligned grid">
+            <div class="column">
+                <h2 class="ui teal image header">
+<!--                    <img src="assets/images/logo.png" class="image">-->
+                    <div class="content">
+                        管理后台登录
+                    </div>
+                </h2>
+                <form class="ui large form" method="post" action="/admin/login" th:action="@{/admin/login}">
+                    <div class="ui segment">
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <input type="text" autocomplete="off" name="username" placeholder="用户名">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="lock icon"></i>
+                                <input type="password" name="password" placeholder="密码">
+                            </div>
+                        </div>
+                        <button class="ui fluid large teal submit button">登   录</button>
+                    </div>
+
+                    <div class="ui error mini message"></div>
+                    <div class="ui  mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--/*/<th:block th:replace="admin/_fragments::script">/*/-->
+
+<!--/*/</th:block>/*/-->
+<script>
+    $('.menu.toggle').click(function(){
+       $('.m-item').toggleClass('m-mobile-hide');
+    });
+    $('.ui.dropdown').dropdown({
+        on:'click'
+    });
+    $('.ui.form').form({
+        fields:{
+            username:{
+                identifier:'username',
+                rules:[{
+                    type:'empty',
+                    prompt:'请输入用户名'
+                }]
+            },
+            password:{
+                identifier:'password',
+                rules:[{
+                    type:'empty',
+                    prompt:'请输入密码'
+                }]
+            }
+        }
+    });
+    //消息初始化
+    $(".message .close").on("click",function () {
+        $(this).closest('.message').transition('fade');
+    });
+</script>
+</body>
+</html>

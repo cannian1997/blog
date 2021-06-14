@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.evilve.blog.mapper.CommentMapper">
+
+    <resultMap id="commentMapper" type="Comment">
+        <association property="blog" javaType="Blog">
+            <id column="id(1)" property="id"></id>
+            <result column="content(1)" property="content"></result>
+            <result column="createTime(1)" property="createTime"></result>
+        </association>
+    </resultMap>
+
+    <select id="listCommentByBlogId" resultMap="commentMapper">
+        SELECT c.*,b.* FROM t_comment c
+        JOIN t_blog b
+        ON c.b_id=b.id
+        <where>
+            <if test="id!=null">
+                and b.id=#{id}
+            </if>
+            <if test="parentCommentId!=null">
+                and c.parent_comment_id=#{parentCommentId}
+            </if>
+            <if test="parentCommentId==null">
+                and c.parent_comment_id is null
+            </if>
+        </where>
+    </select>
+</mapper>

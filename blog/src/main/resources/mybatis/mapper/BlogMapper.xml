@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.evilve.blog.mapper.BlogMapper">
+    
+    <resultMap id="blogMapper" type="blog">
+        <association property="type" javaType="Type">
+            <id column="tid" property="id"></id>
+        </association>
+        <association property="user" javaType="User">
+            <id column="id(1)" property="id"></id>
+            <result column="createTime(1)" property="createTime"></result>
+            <result column="updateTime(1)" property="updateTime"></result>
+        </association>
+    </resultMap>
+    
+    <select id="queryBlog" resultMap="blogMapper">
+        SELECT b.*,u.*,t.id tid,t.`name` FROM t_blog b
+        JOIN t_type t
+        ON b.t_id=t.id
+        JOIN t_user u
+        ON b.u_id=u.id
+        <where>
+            <if test="blogQuery.title!=null and blogQuery.title!=''">
+               and b.title like CONCAT('%',#{blogQuery.title},'%')
+            </if>
+            <if test="blogQuery.typeId!=null and blogQuery.typeId!=0">
+                and t.id=#{blogQuery.typeId}
+            </if>
+            <if test="blogQuery.recommend!=false">
+                and b.recommend=#{blogQuery.recommend}
+            </if>
+        </where>
+        ORDER BY b.createTime DESC
+        LIMIT #{currentPage},#{pageSize}
+    </select>
+
+
+    <select id="blogPage" resultMap="blogMapper">
+        SELECT b.*,u.*,t.id tid,t.`name` FROM t_blog b
+        JOIN t_type t
+        ON b.t_id=t.id
+        JOIN t_user u
+        ON b.u_id=u.id
+        <where>
+            <if test="query!=null and query!=''">
+                OR title like CONCAT('%',#{query},'%')
+                OR content LIKE CONCAT('%',#{query},'%')
+            </if>
+        </where>
+        ORDER BY b.createTime DESC
+        LIMIT #{currentPage},#{pageSize}
+    </select>
+    <select id="blogById" parameterType="long" resultMap="blogMapper">
+        SELECT b.*,u.*,t.id tid,t.`name` FROM t_blog b
+        JOIN t_type t
+        ON b.t_id=t.id
+        JOIN t_user u
+        ON b.u_id=u.id
+        <where>
+            b.id=#{id}
+        </where>
+    </select>
+
+    <select id="blogByTypeId" resultMap="blogMapper">
+        SELECT b.*,u.*,t.id tid,t.`name` FROM t_blog b
+        JOIN t_type t
+        ON b.t_id=t.id
+        JOIN t_user u
+        ON b.u_id=u.id
+        <where>
+            b.t_id=#{id}
+        </where>
+        ORDER BY b.createTime DESC
+        LIMIT #{currentPage},#{pageSize}
+    </select>
+
+    <select id="findByDate" resultMap="blogMapper">
+        SELECT b.*,u.*,t.id tid,t.`name` FROM t_blog b
+        JOIN t_type t
+        ON b.t_id=t.id
+        JOIN t_user u
+        ON b.u_id=u.id
+        WHERE DATE_FORMAT(b.createTime,'%Y-%m')=#{date}
+    </select>
+
+    <select id="findGroupDate" resultType="string">
+        SELECT DATE_FORMAT(b.createTime,'%Y-%m') as date
+        FROM t_blog b GROUP BY date ORDER BY date desc
+    </select>
+
+</mapper>

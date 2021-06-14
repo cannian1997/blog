@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.evilve.blog.mapper.UserMapper">
+
+    <resultMap id="userMapper" type="user">
+        <collection property="blogs" ofType="Blog">
+            <id column="bid" property="id"></id>
+            <result column="bcreateTime" property="createTime"></result>
+            <result column="bupdateTime" property="updateTime"></result>
+        </collection>
+    </resultMap>
+
+
+
+    <select id="getUser" resultType="user">
+        SELECT * FROM t_user u
+        WHERE u.username=#{username} AND u.`password`=#{password}
+    </select>
+</mapper>
