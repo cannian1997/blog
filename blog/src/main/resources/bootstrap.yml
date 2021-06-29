@@ -1,0 +1,17 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: blog
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: d5eabcae-db68-4615-ac06-c8a5fe6ecd97
+        group: DEFAULT_GROUP
+        file-extension: yml
+        prefix: ${spring.application.name}
+        profile: ${spring.profiles.active}
+
+
+
