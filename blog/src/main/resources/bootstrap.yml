@@ -1,6 +1,8 @@
 spring:
   profiles:
     active: dev
+  messages:
+    basename: i18n/messages
   application:
     name: blog
   cloud:
@@ -13,5 +15,6 @@ spring:
         prefix: ${spring.application.name}
         profile: ${spring.profiles.active}
 
+comment.avatar: /images/avatar.png
 
 
