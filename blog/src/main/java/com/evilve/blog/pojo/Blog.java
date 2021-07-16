@@ -1,16 +1,14 @@
 package com.evilve.blog.pojo;
 
 import com.baomidou.mybatisplus.annotation.*;
-
-import java.util.Date;
-import java.io.Serializable;
-import java.util.List;
-
-import com.baomidou.mybatisplus.generator.config.po.TableFill;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 
 /**
  * <p>

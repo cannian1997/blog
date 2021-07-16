@@ -1,8 +1,7 @@
 package com.evilve.blog.service;
 
-import com.evilve.blog.pojo.Type;
 import com.baomidou.mybatisplus.extension.service.IService;
-import org.apache.ibatis.annotations.Param;
+import com.evilve.blog.pojo.Type;
 
 import java.util.List;
 

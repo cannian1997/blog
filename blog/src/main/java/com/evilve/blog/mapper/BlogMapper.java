@@ -1,13 +1,12 @@
 package com.evilve.blog.mapper;
 
-import com.evilve.blog.pojo.Blog;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.evilve.blog.pojo.Blog;
 import com.evilve.blog.vo.BlogQuery;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * <p>

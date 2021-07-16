@@ -1,10 +1,8 @@
 package com.evilve.blog.service;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.evilve.blog.pojo.Blog;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.evilve.blog.pojo.Blog;
 import com.evilve.blog.vo.BlogQuery;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;

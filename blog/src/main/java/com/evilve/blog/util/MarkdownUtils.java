@@ -4,7 +4,6 @@ import org.commonmark.Extension;
 import org.commonmark.ext.gfm.tables.TableBlock;
 import org.commonmark.ext.gfm.tables.TablesExtension;
 import org.commonmark.ext.heading.anchor.HeadingAnchorExtension;
-import org.commonmark.ext.heading.anchor.internal.HeadingIdAttributeProvider;
 import org.commonmark.node.Link;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
