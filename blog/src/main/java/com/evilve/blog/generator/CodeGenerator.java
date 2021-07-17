@@ -46,16 +46,16 @@ public class CodeGenerator {
         PackageConfig pc = new PackageConfig();
         pc.setModuleName("blog");
         pc.setParent("com.evilve");
-        pc.setController("controller");
-        pc.setEntity("pojo");
-        pc.setService("service");
-        pc.setMapper("mapper");
+        //pc.setController("controller");
+        pc.setEntity("exception.entities");
+        pc.setService("exception.service");
+        pc.setMapper("exception.mapper");
         mpg.setPackageInfo(pc);
 
         // 5、策略配置
         StrategyConfig strategy = new StrategyConfig();
         //strategy.setInclude("ks_\\w*");//设置要映射的表名
-        strategy.setInclude("t_tag","t_comment");//设置要映射的表名
+        strategy.setInclude("t_exception_info");//设置要映射的表名
         strategy.setNaming(NamingStrategy.underline_to_camel);//数据库表映射到实体的命名策略
         strategy.setTablePrefix("t_");//设置表前缀不生成
 
