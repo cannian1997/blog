@@ -1,8 +1,15 @@
 # 应用名称
 spring:
-  application:
-    name: blog
-#  数据源
+  #国际化
+  messages:
+    basename: i18n/messages
+  #定义重复bean覆盖
+  main:
+    allow-bean-definition-overriding: true
+  #redis 配置
+  redis:
+    host: 127.0.0.1
+  #  数据源
   datasource:
     username: root
     password: root
@@ -43,7 +50,12 @@ mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     auto-mapping-behavior: full
-  mapper-locations: classpath:mybatis/mapper/*.xml
   type-aliases-package: com.evilve.blog.pojo
 # 日志信息
-
+#外部配置
+comment.avatar: /images/avatar.png
+ext:
+  proxy:
+    isProxy: false
+    ip: 10.80.250.1
+    port: 443

@@ -3,6 +3,7 @@ package com.evilve.blog.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.evilve.blog.pojo.Blog;
 import com.evilve.blog.vo.BlogQuery;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -16,7 +17,7 @@ import java.util.List;
  * @author Evilve
  * @since 2020-12-11
  */
-@Repository
+@Mapper
 public interface BlogMapper extends BaseMapper<Blog> {
     List<Blog> queryBlog(@Param("blogQuery") BlogQuery blogQuery, @Param("currentPage") Integer currentPage, @Param("pageSize") Integer pageSize);
     List<Blog> blogPage(@Param("query")String query,@Param("currentPage") Integer currentPage, @Param("pageSize") Integer pageSize);

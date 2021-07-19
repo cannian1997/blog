@@ -2,7 +2,7 @@ package com.evilve.blog.aspect;
 
 import com.alibaba.fastjson.JSONObject;
 import com.evilve.blog.annotaction.ExceptionLog;
-import com.evilve.blog.exception.entities.ExceptionInfo;
+import com.evilve.blog.pojo.ExceptionInfo;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;

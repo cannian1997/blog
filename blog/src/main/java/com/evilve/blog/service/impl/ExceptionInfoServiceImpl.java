@@ -1,9 +1,9 @@
 package com.evilve.blog.service.impl;
 
-import com.evilve.blog.exception.entities.ExceptionInfo;
-import com.evilve.blog.exception.mapper.ExceptionInfoMapper;
-import com.evilve.blog.exception.service.ExceptionInfoService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.evilve.blog.mapper.ExceptionInfoMapper;
+import com.evilve.blog.pojo.ExceptionInfo;
+import com.evilve.blog.service.ExceptionInfoService;
 import org.springframework.stereotype.Service;
 
 /**

@@ -2,6 +2,7 @@ package com.evilve.blog.mapper;
 
 import com.evilve.blog.pojo.Type;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -15,7 +16,7 @@ import java.util.List;
  * @author Evilve
  * @since 2020-12-11
  */
-@Repository
+@Mapper
 public interface TypeMapper extends BaseMapper<Type> {
     List<Type> getTypes(@Param("currentPage") Integer currentPage,@Param("pageSize") Integer pageSize);
     List<Type> leftTypes(@Param("currentPage") Integer currentPage,@Param("pageSize") Integer pageSize);

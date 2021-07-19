@@ -1,7 +1,7 @@
-package com.evilve.blog.exception.service;
+package com.evilve.blog.service;
 
-import com.evilve.blog.exception.entities.ExceptionInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.evilve.blog.pojo.ExceptionInfo;
 
 /**
  * <p>
