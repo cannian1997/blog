@@ -14,7 +14,6 @@ import org.springframework.stereotype.Repository;
  * @author Evilve
  * @since 2020-12-11
  */
-@Mapper
 public interface UserMapper extends BaseMapper<User> {
     User getUser(@Param("username") String username,@Param("password") String password);
 }

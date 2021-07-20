@@ -3,6 +3,9 @@ spring:
     active: dev
   application:
     name: blog
+    #国际化
+  messages:
+    basename: i18n/messages
   cloud:
     nacos:
       config:
@@ -12,5 +15,3 @@ spring:
         file-extension: yml
         prefix: ${spring.application.name}
         profile: ${spring.profiles.active}
-
-

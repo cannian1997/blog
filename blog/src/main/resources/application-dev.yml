@@ -51,6 +51,7 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     auto-mapping-behavior: full
   type-aliases-package: com.evilve.blog.pojo
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
 # 日志信息
 #外部配置
 comment.avatar: /images/avatar.png

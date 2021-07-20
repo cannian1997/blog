@@ -29,6 +29,7 @@ import java.time.Duration;
  * @author <liukuankuan>
  * @since 2021/7/19 20:38
  */
+@Deprecated
 @Configuration
 public class RedisTemplateConfig {
 

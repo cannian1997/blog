@@ -7,8 +7,10 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.evilve.blog.util.MarkdownUtils;
 import com.evilve.blog.vo.BlogQuery;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,6 +25,7 @@ import java.util.Map;
  */
 @Service
 public class BlogServiceImpl extends ServiceImpl<BlogMapper, Blog> implements BlogService {
+
     @Autowired
     private BlogMapper blogMapper;
 
@@ -33,6 +36,7 @@ public class BlogServiceImpl extends ServiceImpl<BlogMapper, Blog> implements Bl
 
     @Override
     public List<Blog> blogPage(String query,Integer currentPage, Integer pageSize) {
+        System.out.println(blogMapper != null);
         return blogMapper.blogPage(query,(currentPage-1)*pageSize,pageSize);
     }
 

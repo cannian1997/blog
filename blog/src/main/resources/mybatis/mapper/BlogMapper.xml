@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.evilve.blog.mapper.BlogMapper">
     
-    <resultMap id="blogMapper" type="blog">
+    <resultMap id="blogMapper" type="Blog">
         <association property="type" javaType="Type">
             <id column="tid" property="id"></id>
         </association>

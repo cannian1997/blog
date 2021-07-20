@@ -12,7 +12,7 @@
 
 
 
-    <select id="getUser" resultType="user">
+    <select id="getUser" resultType="com.evilve.blog.pojo.User">
         SELECT * FROM t_user u
         WHERE u.username=#{username} AND u.`password`=#{password}
     </select>

@@ -16,7 +16,6 @@ import java.util.List;
  * @author Evilve
  * @since 2020-12-11
  */
-@Mapper
 public interface TypeMapper extends BaseMapper<Type> {
     List<Type> getTypes(@Param("currentPage") Integer currentPage,@Param("pageSize") Integer pageSize);
     List<Type> leftTypes(@Param("currentPage") Integer currentPage,@Param("pageSize") Integer pageSize);
