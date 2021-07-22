@@ -8,10 +8,19 @@ spring:
     basename: i18n/messages
   cloud:
     nacos:
+      server-addr: 127.0.0.1:8848
       config:
-        server-addr: 127.0.0.1:8848
+        server-addr: ${spring.cloud.nacos.server-addr}
         namespace: d5eabcae-db68-4615-ac06-c8a5fe6ecd97
-        group: DEFAULT_GROUP
         file-extension: yml
         prefix: ${spring.application.name}
         profile: ${spring.profiles.active}
+        refresh-enabled: true
+        extension-configs:
+            - data-id: ${spring.application.name}-${spring.profiles.active}.yml
+              refresh: true
+      discovery:
+        server-addr: ${spring.cloud.nacos.server-addr}
+        namespace: d5eabcae-db68-4615-ac06-c8a5fe6ecd97
+
+
