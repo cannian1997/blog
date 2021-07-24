@@ -1,0 +1,11 @@
+server:
+  port: 9000 #端口
+spring:
+  cloud:
+    gateway:
+      #路由规则
+      routes:
+        - id: blog                    #路由ID:唯一
+          uri: http://localhost:8080  #目标uri:路由到微服务的地址
+          predicates:                 #预言(条件判断)
+            - Path=/blog/**          #匹配对应的uri请求，将匹配到的uri追加到目标uri的后面

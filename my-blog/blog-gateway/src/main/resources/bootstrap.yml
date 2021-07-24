@@ -1,0 +1,20 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: blog-gateway
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: d5eabcae-db68-4615-ac06-c8a5fe6ecd97
+      config:
+        namespace: d5eabcae-db68-4615-ac06-c8a5fe6ecd97
+        file-extension: yml
+        prefix: ${spring.application.name}
+        profile: ${spring.profiles.active}
+        refresh-enabled: true
+        extension-configs:
+          - data-id: ${spring.application.name}-${spring.profiles.active}.yml
+            refresh: true
