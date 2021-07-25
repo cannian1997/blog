@@ -8,7 +8,7 @@ spring:
     basename: i18n/messages
   cloud:
     nacos:
-      server-addr: www.evilve.top
+      server-addr: nacos.evilve.top
       config:
         server-addr: ${spring.cloud.nacos.server-addr}
         namespace: ${spring.profiles.active}
