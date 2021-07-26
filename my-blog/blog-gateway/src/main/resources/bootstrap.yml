@@ -5,12 +5,12 @@ spring:
     name: blog-gateway
   cloud:
     nacos:
-      server-addr: 127.0.0.1:8848
+      server-addr: nacos.evilve.top
       discovery:
-        server-addr: 127.0.0.1:8848
-        namespace: d5eabcae-db68-4615-ac06-c8a5fe6ecd97
+        server-addr: ${spring.cloud.nacos.server-addr}
+        namespace: ${spring.profiles.active}
       config:
-        namespace: d5eabcae-db68-4615-ac06-c8a5fe6ecd97
+        namespace: ${spring.profiles.active}
         file-extension: yml
         prefix: ${spring.application.name}
         profile: ${spring.profiles.active}
