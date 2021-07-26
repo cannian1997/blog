@@ -3,9 +3,18 @@ server:
 spring:
   cloud:
     gateway:
-      #路由规则
       routes:
-        - id: blog                    #路由ID:唯一
-          uri: http://localhost:8080  #目标uri:路由到微服务的地址
+        - id: blog-gateway                    #路由ID:唯一
+          #uri: http://localhost:8080  #目标uri:路由到微服务的地址
+          uri: lb://blog               #根据服务名,从注册中心获取地址
           predicates:                 #预言(条件判断)
-            - Path=/        #匹配对应的uri请求，将匹配到的uri追加到目标uri的后面
+            - Path=/**,/api-gateway/**          #匹配对应的uri请求，将匹配到的uri追加到目标uri的后面
+          filters:  #网关过滤器
+#            - RewritePath=/api-gateway(?<segment>/?.*),$\{segment}  #重写请求地址
+            #- PrefixPath=/blog
+            #- StripPrefix=2                                         #表示拆分前两个路径，如/api/123/blog/1拆分后为/blog/1
+#      discovery:
+#        locator:
+#          #是否与服务发现组件进行结合，通过服务名称转发到具体的服务实例
+#          enabled: true #是否开启基于服务发现的路由规则
+#          lower-case-service-id: true #是否将服务名转小写

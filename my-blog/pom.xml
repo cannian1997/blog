@@ -11,6 +11,8 @@
 
     <properties>
         <spring-boot.version>2.3.4.RELEASE</spring-boot.version>
+        <maven.compiler.source>1.8</maven.compiler.source>   <!--设置maven编译版本,默认1.5-->
+        <maven.compiler.target>1.8</maven.compiler.target>   <!--设置maven编译目标版本,默认1.5-->
     </properties>
 
     <dependencyManagement>
