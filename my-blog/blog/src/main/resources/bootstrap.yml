@@ -7,6 +7,10 @@ spring:
   messages:
     basename: i18n/messages
   cloud:
+    inetutils:
+      ignored-interfaces: eth.* #忽略网卡，正则表达式
+      preferred-networks:
+        - ${discover.server-ip:127.0.0.1}
     nacos:
       server-addr: nacos.evilve.top
       config:

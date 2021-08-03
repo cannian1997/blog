@@ -12,10 +12,10 @@ import org.springframework.context.annotation.Configuration;
  * @author <liukuankuan>
  * @since 2021/7/26 20:24
  */
-@Configuration
+//@Configuration
 public class GatewayRoutesConfiguration {
 
-    @Bean
+    //@Bean
     public RouteLocator routeLocator(RouteLocatorBuilder builder){
         return builder.routes().route(r ->r
                 //断言
