@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 public class ControllerExceptionHandler {
     //全局异常处理
 
-    private final Logger logger = LoggerFactory.getLogger(ControllerExceptionHandler.class);
+    private static final Logger logger = LoggerFactory.getLogger(ControllerExceptionHandler.class);
 
     @ExceptionHandler(Exception.class)
     public ModelAndView exceptionHandler(HttpServletRequest request,Exception e) throws Exception {

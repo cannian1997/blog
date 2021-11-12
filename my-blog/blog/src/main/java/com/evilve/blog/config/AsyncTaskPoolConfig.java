@@ -27,7 +27,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 @EnableScheduling
 public class AsyncTaskPoolConfig implements SchedulingConfigurer, AsyncConfigurer {
 
-    private final Logger log = LoggerFactory.getLogger(AsyncTaskPoolConfig.class);
+    private static final Logger log = LoggerFactory.getLogger(AsyncTaskPoolConfig.class);
 
     /**
      * 定时任务使用的线程池

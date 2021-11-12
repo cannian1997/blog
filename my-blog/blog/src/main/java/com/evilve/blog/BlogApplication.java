@@ -15,6 +15,6 @@ public class BlogApplication extends SpringBootServletInitializer{
     }
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext run = new SpringApplicationBuilder(BlogApplication.class).web(WebApplicationType.SERVLET).run(args);
+        ConfigurableApplicationContext context = new SpringApplicationBuilder(BlogApplication.class).web(WebApplicationType.SERVLET).run(args);
     }
 }
